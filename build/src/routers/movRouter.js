@@ -24,3 +24,11 @@ movRouter.get('/genres', asyncHandler((req, res) => __awaiter(void 0, void 0, vo
     const result = yield controller.getMovieByGenres();
     res.type("application/json").json(result);
 })));
+movRouter.get('/two', asyncHandler((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield controller.getTwoBestMovies();
+    res.type("application/json").json(result);
+})));
+movRouter.get('/2010', asyncHandler((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield controller.sort2010Movies();
+    res.type("application/json").json(result);
+})));

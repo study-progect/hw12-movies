@@ -15,12 +15,25 @@ export class MovServiceImplMongo implements MovService{
         return MovieModel.find({languages: { $size: 1, $all: ['Russian'] }})
     }
 
-    getTwoBestMovies(): Promise<[]> {
-        return Promise.resolve([]);
+   async getTwoBestMovies(): Promise<String[]> {
+        return MovieModel.find()
+            .sort({ 'awards.wins': -1 })
+            .limit(2)
+            .select('title')
+            .then(movies => movies.map(movie => movie.title));
     }
 
-    sort2010Movies(): Promise<[]> {
-        return Promise.resolve([]);
-    }
+    async sort2010Movies(): Promise<string[]> {
+        return MovieModel
+            .find({
+                year: '2010'
+            })
+            .sort({ 'imdb.rating': -1 })
+            .select('title imdb.rating')
+            .then(movies => movies.map(movie =>
+                movie.imdb && movie.imdb.rating != null
+                    ? `${movie.title} - ${movie.imdb.rating}`
+                    : `${movie.title} - most underrated movie!!!`
+            ));    }
 
 }

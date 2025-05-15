@@ -18,3 +18,11 @@ movRouter.get('/genres', asyncHandler(async (req, res) => {
     const result = await controller.getMovieByGenres()
     res.type("application/json").json(result)
 }));
+movRouter.get('/two', asyncHandler(async (req, res) => {
+    const result = await controller.getTwoBestMovies()
+    res.type("application/json").json(result)
+}));
+movRouter.get('/2010', asyncHandler(async (req, res) => {
+    const result = await controller.sort2010Movies()
+    res.type("application/json").json(result)
+}));

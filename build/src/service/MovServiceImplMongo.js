@@ -25,9 +25,25 @@ export class MovServiceImplMongo {
         });
     }
     getTwoBestMovies() {
-        return Promise.resolve([]);
+        return __awaiter(this, void 0, void 0, function* () {
+            return MovieModel.find()
+                .sort({ 'awards.wins': -1 })
+                .limit(2)
+                .select('title')
+                .then(movies => movies.map(movie => movie.title));
+        });
     }
     sort2010Movies() {
-        return Promise.resolve([]);
+        return __awaiter(this, void 0, void 0, function* () {
+            return MovieModel
+                .find({
+                year: '2010'
+            })
+                .sort({ 'imdb.rating': -1 })
+                .select('title imdb.rating')
+                .then(movies => movies.map(movie => movie.imdb && movie.imdb.rating != null
+                ? `${movie.title} - ${movie.imdb.rating}`
+                : `${movie.title} - most underrated movie!!!`));
+        });
     }
 }

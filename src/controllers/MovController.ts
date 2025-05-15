@@ -13,4 +13,10 @@ export class MovController {
     async getMovieByGenres() {
         return this.movService.getMovieByGenres()
     }
+    async getTwoBestMovies() {
+        return this.movService.getTwoBestMovies()
+    }
+    async sort2010Movies() {
+        return this.movService.sort2010Movies()
+    }
 }

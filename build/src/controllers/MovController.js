@@ -27,4 +27,14 @@ export class MovController {
             return this.movService.getMovieByGenres();
         });
     }
+    getTwoBestMovies() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.movService.getTwoBestMovies();
+        });
+    }
+    sort2010Movies() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.movService.sort2010Movies();
+        });
+    }
 }
