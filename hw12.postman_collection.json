@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "c743d412-ed50-417d-9edb-bb883d7b13b6",
+		"name": "hw12",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "36626095"
+	},
+	"item": [
+		{
+			"name": "getMoviesWithImdbLessThanTomatoes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3500/api/movies"
+			},
+			"response": []
+		},
+		{
+			"name": "2010film",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3500/api/movies/2010"
+			},
+			"response": []
+		},
+		{
+			"name": "getOnlyRusMovies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3500/api/movies/rus"
+			},
+			"response": []
+		},
+		{
+			"name": "getMovieByGenres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3500/api/movies/genres"
+			},
+			"response": []
+		},
+		{
+			"name": "GetTwobestMovies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3500/api/movies/two"
+			},
+			"response": []
+		}
+	]
+}
