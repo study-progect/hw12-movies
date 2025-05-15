@@ -12,8 +12,19 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/express": "^5.0.1",
     "@types/node": "^22.14.0",
+    "express": "^5.1.0",
+    "express-async-handler": "^1.2.0",
     "rimraf": "^5.0.10",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@types/morgan": "^1.9.9",
+    "joi": "^17.13.3",
+    "mongoose": "^8.14.3",
+    "morgan": "^1.10.0",
+    "uuid": "^11.1.0"
   }
 }
