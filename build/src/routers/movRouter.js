@@ -13,22 +13,27 @@ import { MovController } from "../controllers/MovController.js";
 export const movRouter = express.Router();
 const controller = new MovController();
 movRouter.get('/', asyncHandler((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield controller.getMoviesWithImdbLessThanTomatoes();
-    res.type("application/json").json(result);
-})));
-movRouter.get('/rus', asyncHandler((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield controller.getOnlyRusMovies();
-    res.type("application/json").json(result);
-})));
-movRouter.get('/genres', asyncHandler((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield controller.getMovieByGenres();
-    res.type("application/json").json(result);
-})));
-movRouter.get('/two', asyncHandler((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield controller.getTwoBestMovies();
-    res.type("application/json").json(result);
-})));
-movRouter.get('/2010', asyncHandler((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield controller.sort2010Movies();
-    res.type("application/json").json(result);
+    const type = req.query.param;
+    let result;
+    switch (type) {
+        case 'rus':
+            result = yield controller.getOnlyRusMovies();
+            break;
+        case 'two':
+            result = yield controller.getTwoBestMovies();
+            break;
+        case '2010':
+            result = yield controller.sort2010Movies();
+            break;
+        case 'genres':
+            result = yield controller.getMovieByGenres();
+            break;
+        case undefined:
+            result = yield controller.getMoviesWithImdbLessThanTomatoes();
+            break;
+        default:
+            res.status(400).json({ error: "Invalid type parameter" });
+            return;
+    }
+    res.json(result);
 })));
